@@ -1,0 +1,20 @@
+CREATE TABLE my_store (id INTEGER PRIMARY KEY, item_name TEXT, type TEXT, price NUMERIC, quantity_on_hand INTEGER, need_to_make TEXT);
+INSERT INTO my_store VALUES (1, "Butter Croissant","pastry", 3, 10, "No");
+INSERT INTO my_store VALUES (2, "Chocolate Croissant", "pastry", 4, 5, "No");
+INSERT INTO my_store VALUES (3, "Almond Croissant", "pastry", 4, 7, "No");
+INSERT INTO my_store VALUES (4, "Cheese Danish", "pastry", 4, 8, "No");
+INSERT INTO my_store VALUES (5, "Blackberry Danish", "pastry", 5, 4, "No");
+INSERT INTO my_store VALUES (6, "Chocolate Chip", "cookie", 3, 2, "Yes");
+INSERT INTO my_store VALUES (7, "Chocolate Chip Pecan", "cookie", 3, 5, "No");
+INSERT INTO my_store VALUES (8, "Double Chocolate","cookie", 3, 7, "No");
+INSERT INTO my_store VALUES (9, "Snickerdoodle","cookie", 3, 10, "No");
+INSERT INTO my_store VALUES (10, "Raspberry Thumbprint", "cookie", 3, 12, "No");
+INSERT INTO my_store VALUES (11, "Black Forrest", "cake", 12, 3, "No");
+INSERT INTO my_store VALUES (12, "Strawberry Mousse", "cake", 12, 1, "Yes");
+INSERT INTO my_store VALUES (13, "Mocha Crumble", "cake", 14, 3, "No");
+INSERT INTO my_store VALUES (14, "Citrus", "cake", 15, 2, "Yes");
+INSERT INTO my_store VALUES (15, "German Chocolate", "cake", 13, 3, "No");
+SELECT * FROM my_store ORDER BY price;
+SELECT * FROM my_store WHERE type = "cake";
+SELECT AVG(price) From my_store WHERE type = "cake";
+
