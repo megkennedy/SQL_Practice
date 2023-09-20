@@ -1,0 +1,56 @@
+* Create table about the people and what they do here */
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    creature_type TEXT,
+    home_country TEXT);
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Matthew", "Clairmont", "Vampire", "England");
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Diana", "Bishop", "Witch", "England");
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Sarah", "Bishop", "Witch", "United States");
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Ysabeau", "DeClermont", "Vampire", "France");
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Agatha", "Wilson", "Demon", "England");
+INSERT INTO characters (first_name, last_name, creature_type, home_country)
+    VALUES ("Hamish", "Osborne", "Demon", "Scotland");
+   
+CREATE TABLE hobbies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_id INTEGER,
+    hobby_1 TEXT,
+    hobby_2 TEXT);
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("1", "Biochemistry", "Hunting");
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("2", "Alchemy Research", "Witchcraft");
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("3", "Witchcraft", "Baking");
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("4", "Hunting", "Being Rich");
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("5", "Council member", "Baking");
+INSERT INTO hobbies (character_id, hobby_1, hobby_2) 
+    VALUES ("6", "Being Rich", "Helping Friends");
+
+CREATE TABLE creature_pairs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    creature_1 INTEGER, creature_2 INTEGER);
+INSERT INTO creature_pairs (creature_1, creature_2) VALUES (1, 4);
+INSERT INTO creature_pairs (creature_1, creature_2) VALUES (2, 3);
+INSERT INTO creature_pairs (creature_1, creature_2) VALUES (5, 6);
+
+SELECT characters.first_name, hobbies.hobby_1, hobbies.hobby_2
+FROM characters
+JOIN hobbies
+ON characters.id = hobbies.character_id;
+
+SELECT characters_a.first_name, characters_b.first_name, characters_a.creature_type as type
+FROM creature_pairs
+JOIN characters characters_a
+ON creature_pairs.creature_1 = characters_a.id
+JOIN characters characters_b
+ON creature_pairs.creature_2 = characters_b.id;
